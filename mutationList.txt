@@ -1,0 +1,150 @@
+MUTATION 1 => DELETE GAME FROM GAME ID 
+
+mutation DeleteGame($deleteGameId: ID!){
+  deleteGame(id: $deleteGameId) {
+    id
+    platform
+    title
+  }
+}
+
+{
+  "deleteGameId": "2"
+}
+
+MUTATION 2 => ADD GAME FROM USER
+
+mutation AddGame($game: AddGameInput){
+  addGame(game: $game) {
+    id
+    platform
+    title
+  }
+}
+
+{
+  "game": {
+    "title": "AGE OF EMPIRES 2 DEFINITIVE ADDITION",
+    "platform" : ["STEAM","XBOX"]
+  }
+}
+
+MUTATION 3 => UPDATE GAME 
+
+mutation UpdateGame($updateGameId: ID!, $updateGameEdits2: EditGamesInput){
+  updateGame(id: $updateGameId,edits: $updateGameEdits2) {
+    id
+    platform
+    title
+  }
+}
+
+{
+  "updateGameId": "1",
+  "updateGameEdits2": {
+    "platform" : [
+      "MAC",
+      "Xbox"
+    ],
+  } 
+}
+
+MUTATION 4 => DELETE AUTHOR
+
+mutation DeleteAuthor($deleteAuthorId: ID!){
+  deleteAuthor(id: $deleteAuthorId) {
+    id
+    name
+    verified
+  }
+}
+
+{
+  "deleteAuthorId": "2"
+}
+
+MUTATION 5 => ADD AUTHOR
+
+mutation AddAuthor($author: addAuthorInput){
+  addAuthor(author: $author) {
+    id
+    name
+    verified
+  }
+}
+
+{
+  "author": {
+    "name": "HARSH",
+    "verified": false
+  }
+}
+
+MUTATION 6 => UPDATE AUTHOR
+
+mutation UpdateAuthor($updateAuthorId: ID!, $edits: EditAuthorInput){
+  updateAuthor(id: $updateAuthorId,edits: $edits) {
+    id
+    name
+    verified
+  }
+}
+
+{
+  "updateAuthorId": "2",
+  "edits": {
+    "name": "HARSH",
+    "verified": true
+  }
+}
+
+MUTATION 7 => DELETE REVIEW
+
+mutation DeleteReview($deleteReviewId: ID!){
+  deleteReview(id: $deleteReviewId) {
+    id
+     content
+     rating
+  }
+}
+
+{
+  "deleteReviewId": "2"
+}
+
+MUTATION 8 => ADD REVIEW
+
+mutation AddReview($review: AddReviewInput){
+  addReview(review: $review) {
+    content
+    id
+    rating
+  }
+}
+
+{
+  "review": {
+    "content": "HARSH's Review on age of empires",
+    "rating": 8,
+    "authorId": "2",
+    "gameId": "2"
+  }
+}
+
+MUTATION 9 => UPDATE REVIEW
+
+mutation UpdateReview($updateReviewId: ID!, $edits: EditReviewInput){
+  updateReview(id: $updateReviewId,edits: $edits) {
+    id
+    rating
+    content
+  }
+}
+
+{
+  "updateReviewId": "2",
+  "edits": {
+    "content": "HARSH UPDATE REVIEW",
+    "rating": 999
+  }
+}

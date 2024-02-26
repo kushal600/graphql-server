@@ -1,0 +1,92 @@
+QUERY 1 => RETRIEVE ALL Games
+
+query Games{
+  games {
+    id
+    platform
+    title
+  }
+}
+
+Query 2 => RETRIEVE ALL Authors
+
+query Authors{
+  authors {
+    id
+    name
+    verified
+  }
+}
+
+QUERY 3 => RETRIEVE ALL Reviews
+
+query Reviews{
+  reviews {
+    id
+    content
+    rating
+  }
+}
+
+QUERY 4 => Author Query (find author's review about games from author id);
+
+query AuthorQuery($authorId: ID!){
+  author(id: $authorId) {
+    id
+    name
+    verified
+    reviews {
+      content
+      rating
+    }
+  }
+}
+
+{
+  "authorId": "1"
+}
+
+QUERY 5 => Review Query (find author and game from review id);
+
+query ReviewQuery($reviewId: ID!){
+  review(id: $reviewId) {
+    content
+    id
+    rating
+    author {
+      id
+      name
+    }
+    game {
+      id
+      platform
+      title
+    }
+  }
+}
+
+{
+  "reviewId": "1"
+}
+
+Query 6 => Game Query (from game id retrieve all reviews of game and author of reviews)
+
+query GameQuery($gameId: ID!) {
+  game(id: $gameId) {
+    id
+    platform
+    title
+    reviews {
+      content
+      rating
+      author {
+        id
+        name
+      }
+    }
+  }
+}
+
+{
+  "gameId": "1"
+}
