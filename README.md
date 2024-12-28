@@ -320,3 +320,13 @@ Place this in variables
   }
 }
 ```
+
+---
+
+## Author
+
+- **Kushal Shahpatel**  
+- LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/shahpatel-kushal-4a4a901b6/)  
+- GitHub: [GitHub Profile](https://github.com/kushal600)
+
+---
